@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T&C Clarity</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+        <span class="brand-title">T&C Clarity</span>
+      </div>
+      <button id="open-options" class="icon-button" title="Settings / Options">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Missing API Key Banner -->
+    <div id="no-key-banner" class="banner banner-warning hidden">
+      <div class="banner-content">
+        <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/>
+          <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <span>Gemini API Key missing. Please set your key to summarize.</span>
+      </div>
+      <button id="banner-open-options" class="btn btn-small btn-outline">Set API Key</button>
+    </div>
+
+    <!-- Status Bar -->
+    <div id="status-card" class="status-card">
+      <div class="status-indicator">
+        <span id="status-dot" class="dot"></span>
+        <span id="status-text" class="status-text">Detecting page...</span>
+      </div>
+      <span id="cached-tag" class="badge-cached hidden">Cached</span>
+    </div>
+
+    <!-- Initial Action / Override Section -->
+    <div id="action-section" class="action-section">
+      <button id="summarize-btn" class="btn btn-primary btn-block">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <span id="summarize-btn-text">Summarize Page</span>
+      </button>
+    </div>
+
+    <!-- High-Tech Radar Scanning Loading State -->
+    <div id="loading-state" class="loading-state hidden">
+      <div class="scanner-orbit-container">
+        <div class="radar-scan-beam"></div>
+        <div class="scanner-ring-outer"></div>
+        <div class="scanner-ring-inner"></div>
+        <div class="scanner-core">
+          <svg class="ai-sparkle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+      </div>
+      <p id="loading-text" class="loading-text">Searching & Analyzing Terms...</p>
+      <div class="flowing-progress-track">
+        <div class="flowing-progress-bar"></div>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div id="error-state" class="error-card hidden">
+      <svg class="error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <div class="error-content">
+        <h4 id="error-title">Analysis Failed</h4>
+        <p id="error-message">Could not summarize page.</p>
+      </div>
+      <button id="retry-btn" class="btn btn-secondary btn-small">Try Again</button>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results-section" class="results-section hidden">
+      <!-- Risk Header -->
+      <div class="risk-card" id="risk-card">
+        <div class="risk-label-group">
+          <span class="risk-title">Overall Risk Assessment</span>
+          <span id="risk-badge" class="risk-badge risk-low">Low Risk</span>
+        </div>
+        <p id="one-line-summary" class="one-line-summary"></p>
+      </div>
+
+      <!-- Quick Highlights -->
+      <div class="highlights-grid">
+        <!-- Watch Outs -->
+        <div class="highlight-box watch-out-box">
+          <h5>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            Watch Out Points
+          </h5>
+          <ul id="watch-out-list" class="point-list"></ul>
+        </div>
+
+        <!-- Considerations -->
+        <div class="highlight-box consider-box">
+          <h5>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Key Considerations
+          </h5>
+          <ul id="consider-list" class="point-list"></ul>
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="results-actions">
+        <button id="open-sidepanel-btn" class="btn btn-primary btn-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <line x1="15" y1="3" x2="15" y2="21"/>
+          </svg>
+          Open Full Breakdown
+        </button>
+        <button id="resummarize-btn" class="btn btn-ghost btn-block">Re-summarize</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../lib/detect.js"></script>
+  <script src="../lib/extract.js"></script>
+  <script src="../lib/gemini.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

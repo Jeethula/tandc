@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Sparkles, Terminal, Download, ChevronRight, Menu, X, Cpu, Mail } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from './Icons';
+import { Shield, Sparkles, Terminal, Download, ChevronRight, Menu, X, Cpu } from 'lucide-react';
+import { GithubIcon } from './Icons';
 import confetti from 'canvas-confetti';
 
 export default function Navbar() {
@@ -82,40 +82,21 @@ export default function Navbar() {
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="hidden md:flex items-center gap-2.5">
+          <div className="hidden md:flex items-center gap-3">
             <a 
               href="https://github.com/Jeethula/tandc" 
               target="_blank" 
               rel="noreferrer"
-              className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-300 hover:text-white bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 rounded-xl transition-all"
-              title="GitHub Repository"
+              className="flex items-center gap-2 px-3.5 py-2 text-xs font-medium text-slate-300 hover:text-white bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 rounded-xl transition-all"
             >
               <GithubIcon className="w-4 h-4 text-slate-400" />
               <span>GitHub</span>
               <span className="text-[10px] bg-slate-700/80 px-1.5 py-0.5 rounded text-cyan-300 font-mono">★ MIT</span>
             </a>
 
-            <a 
-              href="https://www.linkedin.com/in/jeethula/" 
-              target="_blank" 
-              rel="noreferrer"
-              className="p-2 text-slate-300 hover:text-cyan-400 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 rounded-xl transition-all"
-              title="LinkedIn Profile: Jeethu"
-            >
-              <LinkedinIcon className="w-4 h-4 text-blue-400" />
-            </a>
-
-            <a 
-              href="mailto:jeeththenthar@gmail.com" 
-              className="p-2 text-slate-300 hover:text-cyan-400 bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 rounded-xl transition-all"
-              title="Contact: jeeththenthar@gmail.com"
-            >
-              <Mail className="w-4 h-4 text-cyan-400" />
-            </a>
-
             <button
               onClick={triggerInstallConfetti}
-              className="relative group overflow-hidden px-4 py-2 rounded-xl text-xs font-bold text-white btn-primary-gradient flex items-center gap-2 cursor-pointer ml-1"
+              className="relative group overflow-hidden px-4 py-2 rounded-xl text-xs font-bold text-white btn-primary-gradient flex items-center gap-2 cursor-pointer"
             >
               <Download className="w-4 h-4 text-cyan-200 group-hover:animate-bounce" />
               <span>Get Extension Free</span>

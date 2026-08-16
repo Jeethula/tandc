@@ -1,6 +1,6 @@
 import React from 'react';
-import { Shield, Heart, Lock, FileText, ArrowUp } from 'lucide-react';
-import { GithubIcon } from './Icons';
+import { Shield, Heart, Lock, FileText, ArrowUp, Mail } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './Icons';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -67,6 +67,20 @@ export default function Footer() {
               <li><a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors">Get Free Gemini Key</a></li>
               <li><a href="https://ollama.com" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors">Ollama Local LLMs</a></li>
               <li><a href="#faq" className="hover:text-cyan-400 transition-colors">FAQ</a></li>
+            </ul>
+          </div>
+
+          {/* Col 4: Open Source & Contact */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-mono font-bold text-white uppercase tracking-wider">
+              Open Source & Contact
+            </h4>
+            <ul className="space-y-2 text-xs text-slate-400">
+              <li><a href="https://github.com/Jeethula/tandc" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><GithubIcon className="w-3.5 h-3.5" /> <span>GitHub: Jeethula/tandc</span></a></li>
+              <li><a href="https://www.linkedin.com/in/jeethula/" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><LinkedinIcon className="w-3.5 h-3.5 text-blue-400" /> <span>LinkedIn: @jeethula</span></a></li>
+              <li><a href="mailto:jeeththenthar@gmail.com" className="hover:text-cyan-400 transition-colors flex items-center gap-1.5"><Mail className="w-3.5 h-3.5 text-cyan-400" /> <span>jeeththenthar@gmail.com</span></a></li>
+              <li><a href="https://github.com/Jeethula/tandc/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors">How to Contribute</a></li>
+              <li><a href="https://github.com/Jeethula/tandc/blob/main/SECURITY.md" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors">Security Policy</a></li>
             </ul>
           </div>
 

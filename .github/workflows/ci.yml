@@ -1,0 +1,32 @@
+name: CI Build & Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-landing-page:
+    name: Build & Validate Landing Page
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: landing-page/package-lock.json
+
+      - name: Install Dependencies
+        run: |
+          cd landing-page
+          npm ci
+
+      - name: Build Landing Page
+        run: |
+          cd landing-page
+          npm run build

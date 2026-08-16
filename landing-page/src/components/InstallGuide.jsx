@@ -60,7 +60,7 @@ export default function InstallGuide() {
               <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-between text-xs font-mono text-slate-300">
                 <span className="truncate">git clone https://...</span>
                 <button
-                  onClick={() => copyToClipboard('git clone https://github.com/user/tc-clarity.git', 'step1')}
+                  onClick={() => copyToClipboard('git clone https://github.com/Jeethula/tandc.git', 'step1')}
                   className="p-1 text-slate-400 hover:text-white"
                 >
                   {copiedStep === 'step1' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}

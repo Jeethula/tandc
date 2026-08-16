@@ -1,6 +1,6 @@
 import React from 'react';
-import { Shield, Download, Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
-import { GithubIcon } from './Icons';
+import { Shield, Download, Sparkles, ArrowRight, CheckCircle2, Mail } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './Icons';
 import confetti from 'canvas-confetti';
 
 export default function CTASection() {
@@ -50,7 +50,7 @@ export default function CTASection() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <button
               onClick={triggerCelebration}
               className="w-full sm:w-auto px-8 py-4 rounded-2xl text-sm font-bold text-white btn-primary-gradient flex items-center justify-center gap-3 shadow-xl shadow-blue-600/40 cursor-pointer group"
@@ -60,14 +60,34 @@ export default function CTASection() {
             </button>
 
             <a
-              href="https://github.com"
+              href="https://github.com/Jeethula/tandc"
               target="_blank"
               rel="noreferrer"
-              className="w-full sm:w-auto px-7 py-4 rounded-2xl text-sm font-semibold text-slate-200 btn-secondary-glass flex items-center justify-center gap-2 group hover:text-white"
+              className="w-full sm:w-auto px-6 py-4 rounded-2xl text-sm font-semibold text-slate-200 btn-secondary-glass flex items-center justify-center gap-2 group hover:text-white"
             >
               <GithubIcon className="w-4 h-4 text-slate-400" />
               <span>Star on GitHub</span>
               <span className="text-xs text-cyan-400 font-mono">★ MIT</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/jeethula/"
+              target="_blank"
+              rel="noreferrer"
+              className="w-full sm:w-auto px-5 py-4 rounded-2xl text-sm font-semibold text-slate-200 btn-secondary-glass flex items-center justify-center gap-2 group hover:text-white"
+              title="Connect with Jeethu on LinkedIn"
+            >
+              <LinkedinIcon className="w-4 h-4 text-blue-400" />
+              <span>LinkedIn</span>
+            </a>
+
+            <a
+              href="mailto:jeeththenthar@gmail.com"
+              className="w-full sm:w-auto px-5 py-4 rounded-2xl text-sm font-semibold text-slate-200 btn-secondary-glass flex items-center justify-center gap-2 group hover:text-white"
+              title="Email: jeeththenthar@gmail.com"
+            >
+              <Mail className="w-4 h-4 text-cyan-400" />
+              <span>Email</span>
             </a>
           </div>
 
